@@ -1,0 +1,16 @@
+<div style="display: flex;height:100vh;width:100vw;justify-content: center;align-items: center;flex-direction: column;">
+  <div><h2>{{timeDisplayer}}</h2></div>
+  <div style="width:800px;height:300px;border:solid 1px black;">
+    <p-carousel (onPage)='pageChane($event)' [value]="questions">
+      <ng-template let-question pTemplate="item">
+        <div style="display: flex;flex-direction: column;">
+          <h5>Q.{{index+1}} {{question.question}}</h5>
+          <div style="display:flex;justify-content: space-around;">
+            <app-answer  *ngFor='let answer of question.answers' [answer]='answer'   (answerSelected)='answerSelected($event)'></app-answer>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</div>
+<button>OK</button>
